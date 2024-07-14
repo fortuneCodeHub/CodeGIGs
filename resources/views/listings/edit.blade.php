@@ -103,7 +103,7 @@
                     </div>
                 </div>
                 <div class="text-center">
-                    <img src="{{$listing->logo ? asset("storage/".$listing->logo) : asset("images/lvimg.png") }}" class="img-fluid w-50 d-none d-md-block m-auto" alt="no-image-present">
+                    <img src="{{$listing->logo ? url("../storage/app/public/".$listing->logo) : asset("images/lvimg.png") }}" class="img-fluid w-50 d-block m-auto" alt="no-image-present">
                 </div>
                 @error('logo')
                     <p class="text-danger fs-6 fw-bold">* {{$message}}</p>

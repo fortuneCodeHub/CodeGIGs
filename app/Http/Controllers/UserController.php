@@ -158,6 +158,8 @@ class UserController extends Controller
             } else {
                 return back()->with("message", "email could not send");
             }
+        } else {
+            return back()->with("message", "This email does not exists");
         }
     }
 
@@ -217,7 +219,7 @@ class UserController extends Controller
                 return redirect(route("login"))->with("message", "Password successfully changed you can now login");
             }
         } else {
-            return redirect(route("confirmemail"))->with("message", "You are not legible to perform this action at the moment, pls you can try again when you are legible");
+            return redirect(route("confirmemail"))->with("message", "You are not ellegible to perform this action at the moment, pls you can try again when you are legible");
         }
     }
 

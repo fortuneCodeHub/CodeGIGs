@@ -10,7 +10,7 @@
 </style>
 
 <div class="text-center p-4">
-    <img src="{{$listing->logo ? asset("storage/".$listing->logo) : asset("images/lvimg.png") }}" class="img-fluid" alt="">
+    <img src="{{$listing->logo ? url("../storage/app/public/".$listing->logo) : asset("images/lvimg.png") }}" class="img-fluid" alt="">
 </div>
 <h2 class="listing-title">{{ $listing->title }}</h2>
 <p class="listing-company fw-bold"> {{$listing->company}} </p>

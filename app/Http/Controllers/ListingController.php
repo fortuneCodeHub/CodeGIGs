@@ -6,7 +6,9 @@ use Illuminate\Http\Request;
 use App\Models\Listing;
 // use Illuminate\Support\Facades\Session;
 use Illuminate\Validation\Rule;
+use League\Flysystem\StorageAttributes;
 
+use function PHPUnit\Framework\fileExists;
 
 class ListingController extends Controller
 {
@@ -114,6 +116,15 @@ class ListingController extends Controller
             abort(403, "Unauthorized action");
         }
 
+        // Delete Image from storage
+        if (!empty($listing->logo)) {
+            $imagePath = "storage/app/public/".$listing->logo;
+            if (fileExists($imagePath)) {
+                unlink(storage_path("app/public/".$listing->logo));
+            }
+
+        }
+        // Delete the whole listing item
         $listing->delete();
         return redirect(route("home"))->with("message", "Listing Deleted Successfully");
     }

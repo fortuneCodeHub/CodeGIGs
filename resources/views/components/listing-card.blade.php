@@ -2,7 +2,7 @@
 
 <x-col>
     <div class="p-4 mb-3 bg-light d-md-flex d-block align-items-center">
-        <img src="{{$listing->logo ? asset("storage/".$listing->logo) : asset("images/lvimg.png") }}" class="img-fluid w-50 d-none d-md-block me-3" alt="no-image-present">
+        <img src="{{$listing->logo ? url("../storage/app/public/".$listing->logo) : asset("images/lvimg.png") }}" class="img-fluid w-50 d-none d-md-block me-3" alt="no-image-present">
         <div class="">
             <h2 class="py-2 mb-2"><a href="listing/{{$listing->id}}" class="list-title">{{$listing->title}}</a></h2>
             <p class="fw-bold mb-3 fs-5">{{$listing->company}}</p>
